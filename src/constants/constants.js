@@ -1,4 +1,5 @@
 const app_paths = {
+    HOME: '/',
     VIEWS: 'views',
     PUBLIC: 'public'
 }

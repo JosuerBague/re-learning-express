@@ -1,13 +1,12 @@
 <html>
     <head>
-        <title>Homepage</title>
+        <title><%= title %></title>
         <link rel="stylesheet" href="/styles.css"/>
     </head>
     <body>
-        <%- include('navbar', { links: links }) %>
         <ul>
-            <% users.forEach((user) => { %>
-                <%- include('users/user', { user: user}); %>
+            <% messages.forEach((message) => { %>
+                <%- include('messages/message', { user: message.user, date: message.added, message: message.text }); %>
             <% }); %>
         </ul>
     </body>

@@ -2,6 +2,7 @@ import express from 'express';
 import path from 'node:path';
 import { fileURLToPath} from 'node:url';
 import { app_paths, PORT} from './../constants/constants.js'
+import { index} from './../routes/index.js'
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -12,8 +13,9 @@ class App {
         this
             .#setViewEngine()
             .#serveAssets()
+            .#registerRoutes()
             .#registerErrorHandler()
-    }
+        }
 
     getApp() {
         return this.app;
@@ -27,6 +29,11 @@ class App {
         })
 
         console.log(`Server listening on port ${PORT}`)
+    }
+
+    #registerRoutes() {
+        this.app.use(app_paths.HOME, index)
+        return this;
     }
 
     #setViewEngine() {
