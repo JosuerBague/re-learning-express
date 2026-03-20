@@ -13,6 +13,7 @@ class App {
         this
             .#setViewEngine()
             .#serveAssets()
+            .#registerMiddlewareBuiltIns()
             .#registerRoutes()
             .#registerErrorHandler()
         }
@@ -45,6 +46,12 @@ class App {
     #serveAssets() {
         const assetsPath = path.join(__dirname, '..',  app_paths.PUBLIC)
         this.app.use(express.static(assetsPath))
+        return this;
+    }
+
+    #registerMiddlewareBuiltIns() {
+        this.app.use(express.json())
+        this.app.use(express.urlencoded({ extended: true }))
         return this;
     }
 

@@ -1,4 +1,6 @@
 import { Router} from 'express';
+import { app_paths } from '../constants/constants.js';
+import { createNewMessage, getHomePage, getNewMessageForm } from '../controllers/index/index.controller.js';
 const index = Router();
 
 const messages = [
@@ -14,6 +16,8 @@ const messages = [
   }
 ]
 
-index.get('/', (req, res) => res.render('index', { title: 'Mini MessageBoard', messages: messages }))
+index.get(app_paths.HOME, getHomePage(messages))
+index.get(app_paths.NEW, getNewMessageForm)
+index.post(app_paths.NEW, createNewMessage(messages))
 
 export { index }
