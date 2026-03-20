@@ -6,8 +6,9 @@
     <body>
         <ul>
             <% messages.forEach((message) => { %>
-                <%- include('messages/message', { user: message.user, date: message.added, message: message.text }); %>
+                <%- include('messages/message', { id: message.id, user: message.user, date: message.added, message: message.text }); %>
             <% }); %>
         </ul>
+        <a class="new-message-btn" href="/new">Create New Message</a>
     </body>
 </html>

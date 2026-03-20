@@ -1,5 +1,6 @@
 import { app_paths, views } from './../../constants/constants.js'
 import {CustomBadRequestError} from './../../errors/custom-bad-request-error.js'
+import {CustomNotFoundError} from './../../errors/custom-not-found-error.js'
 
 const getHomePage = (messages) => (req, res) => {
     res.render(views.HOME, { title: 'Mini MessageBoard', messages: messages})
@@ -17,6 +18,7 @@ const createNewMessage = (messages) => (req, res) => {
     }
 
     messages.push({
+        id: messages.length + 1,
         text: data.message,
         user: data.author,
         added: new Date(),
@@ -25,4 +27,14 @@ const createNewMessage = (messages) => (req, res) => {
     res.redirect(app_paths.HOME)
 }
 
-export { getHomePage, getNewMessageForm, createNewMessage }
+const getSpecificMessage = (messages) => (req, res) => {
+    const match = messages.find((m) => m.id === Number(req.query.id));
+
+    if (!match) {
+        throw new CustomNotFoundError(`Unable to find the requested message!`)
+    }
+
+    res.render(views.MESSAGE_ITEM, { title: `Message ID: ${match.id}`, author: match.author, date: match.added, message: match.text})
+}
+
+export { getHomePage, getNewMessageForm, createNewMessage, getSpecificMessage }

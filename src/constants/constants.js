@@ -2,12 +2,14 @@ const app_paths = {
     HOME: '/',
     VIEWS: 'views',
     PUBLIC: 'public',
-    NEW: '/new'
+    NEW: '/new',
+    MESSAGE: '/message'
 }
 
 const views = {
     HOME: 'index',
-    FORM: 'form/form'
+    FORM: 'form/form',
+    MESSAGE_ITEM: 'messages/message-item'
 }
 
 const PORT = 3000;
