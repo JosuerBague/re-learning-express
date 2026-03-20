@@ -2,5 +2,26 @@
   "dependencies": {
     "ejs": "^5.0.1",
     "express": "^5.2.1"
-  }
+  },
+  "name": "mini-message-board",
+  "version": "1.0.0",
+  "description": "Mini message board for the Odin project",
+  "main": "src/app.js",
+  "type": "module",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/app.js",
+    "watch": "node --watch src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JosuerBague/re-learning-express.git"
+  },
+  "author": "Josuer Bague",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JosuerBague/re-learning-express/issues"
+  },
+  "homepage": "https://github.com/JosuerBague/re-learning-express#readme"
 }
