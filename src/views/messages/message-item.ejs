@@ -4,12 +4,19 @@
         <link rel="stylesheet" href="/styles.css"/>
     </head>
     <body>
-        <div class="message-item">
-            <span class="author">Author: <%= author %></span>
-            <span class="date">Date: <%= date %></span>
-            <p class="message">
-                <%= message %>
-            </p>
+        <div class="content">
+            <div class="board">
+                 <div class="head">
+                    <span>Message Details</span>
+                </div>
+                <div class="message-item">
+                    <span class="author">Author: <%= author %></span>
+                    <span class="date">Date: <%= date %></span>
+                    <p class="message">
+                        <%= message %>
+                    </p>
+                </div>
+            </div>
         </div>
     </body>
 </html>

@@ -1,12 +1,79 @@
 body {
-    color: red;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    height: 100%;
+    margin: 0;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.board {
+    border: 1px solid green;
+    margin-inline: auto;
+}
+
+.messages {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-decoration: none;
+    list-style: none;
+    padding-left: 0;
+    padding: 16px;
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    padding: 20px;
+    background: lightgrey;
+}
+
+.list-item {
+    border-radius: 2px;
+    padding: 5px;
+    background: lightgrey   ;
+}
+
+.list-item-content{
+    display: grid;
+    grid-gap: 10px;
+    grid-template-areas:
+    "user date"
+    "message message"
+    ". link";
+}
+
+.link {
+    justify-self: end;
 }
 
 .new-message-form {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    max-width: 300px    ;
+    max-width: 300px;
+    padding: 16px;
+    min-width: 300px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+}
+
+.text-area {
+    resize: vertical;
 }
 
 .new-message-btn {
@@ -18,7 +85,12 @@ body {
 }
 
 .message-item {
-    display: flex;
+    display: grid;
+    padding: 16px;
+    column-gap: 16px;
+    grid-template-areas:
+        "author date"
+        "message message";
     flex-direction: column;
 
     .author {

@@ -4,16 +4,23 @@
         <link rel="stylesheet" href="/styles.css"/>
     </head>
     <body>
-        <form class="new-message-form" method="POST" action="/new">
-            <div>
-                <label for="author">Author</label>
-                <input name="author" type="text" id="author" />
+        <div class="content">
+            <div class="board">
+                <div class="head">
+                    <span>Create Message</span>
+                </div>
+                <form class="new-message-form" method="POST" action="/new">
+                    <div class="field">
+                        <label for="author">Author</label>
+                        <input name="author" type="text" id="author" />
+                    </div>
+                    <div class="field">
+                        <label for="message">Message</label>
+                        <textarea class="text-area" name="message" type="textbox" id="message"></textarea>
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
             </div>
-            <div>
-                <label for="message">Message</label>
-                <input name="message" type="textbox" id="message"/>
-            </div>
-            <button type="submit">Submit</button>
-        </form>
+        </div>
     </body>
 </html>

@@ -4,11 +4,18 @@
         <link rel="stylesheet" href="/styles.css"/>
     </head>
     <body>
-        <ul>
-            <% messages.forEach((message) => { %>
-                <%- include('messages/message', { id: message.id, user: message.user, date: message.added, message: message.text }); %>
-            <% }); %>
-        </ul>
-        <a class="new-message-btn" href="/new">Create New Message</a>
+        <div class="content">
+            <div class="board">
+                <div class="head">
+                    <span>Message Board</span>
+                    <a class="new-message-btn" href="/new">Create New Message</a>
+                </div>
+                <ul class="messages">
+                    <% messages.forEach((message) => { %>
+                        <%- include('messages/message', { id: message.id, user: message.user, date: message.added, message: message.text }); %>
+                    <% }); %>
+                </ul>
+            </div>
+        </div>
     </body>
 </html>
