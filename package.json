@@ -11,8 +11,8 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/app.js",
-    "watch": "node --watch src/app.js"
+    "start": "node --env-file=src/.env src/app.js",
+    "watch": "node --watch --env-file=src/.env src/app.js"
   },
   "repository": {
     "type": "git",

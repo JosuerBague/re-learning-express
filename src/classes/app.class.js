@@ -1,7 +1,7 @@
 import express from 'express';
 import path from 'node:path';
 import { fileURLToPath} from 'node:url';
-import { app_paths, PORT} from './../constants/constants.js'
+import { app_paths} from './../constants/constants.js'
 import { index} from './../routes/index.js'
 
 const __filename = fileURLToPath(import.meta.url);
@@ -9,6 +9,7 @@ const __dirname = path.dirname(__filename);
 
 class App {
     constructor() {
+        this.PORT = process.env.PORT || 3000;
         this.app = express();
         this
             .#setViewEngine()
@@ -23,13 +24,13 @@ class App {
     }
 
     startServer() {
-        this.app.listen(PORT, (err) => {
+        this.app.listen(this.PORT, (err) => {
             if (err) {
                 throw err;
             }
         })
 
-        console.log(`Server listening on port ${PORT}`)
+        console.log(`Server listening on port ${this.PORT}`)
     }
 
     #registerRoutes() {
