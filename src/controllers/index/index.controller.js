@@ -19,8 +19,8 @@ const createNewMessage = (messages) => (req, res) => {
 
     messages.push({
         id: messages.length + 1,
-        text: data.message,
-        user: data.author,
+        text: message,
+        user: author,
         added: new Date(),
     })
 
